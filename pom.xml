@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.docker.id</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>docker-testing</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
+    <name>docker-testing</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -43,6 +43,7 @@
     </dependencies>
 
     <build>
+        <finalName>${project.name}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -54,7 +55,7 @@
                 <configuration>
                     <imageName>docker-spring-boot</imageName>
                     <baseImage>openjdk:8</baseImage>
-                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                    <entryPoint>["java","-jar","/${project.build.finalName}.jar"]</entryPoint>
                     <!-- copy the service's jar file from target into the root directory of the image -->
                     <resources>
                         <resource>
